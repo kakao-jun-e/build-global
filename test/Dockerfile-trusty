@@ -1,0 +1,7 @@
+FROM ubuntu:trusty
+
+MAINTAINER Dongjun, Lee
+
+ADD build-global.sh /root/build-global.sh
+
+RUN /bin/bash -x /root/build-global.sh

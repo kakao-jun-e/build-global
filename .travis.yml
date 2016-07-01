@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker info
+  - docker version
+
+  - docker build -f test/Dockerfile-trusty -t global_trusty .
+  - docker build -f test/Dockerfile-xenial -t global_xenial .
+
+script:
+  - docker run global_trusty /usr/local/bin/global --version
+  - docker run global_xenial /usr/local/bin/global --version
